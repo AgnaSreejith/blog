@@ -1,19 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Navbar from './Navbar';
+import Home from './Home';
+import BlogForm from './BlogForm';
 
-const Navbar = () => {
+const App = () => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/add">Add Blog</Link>
-        </li>
-      </ul>
-    </nav>
+    <Router>
+      <Navbar />
+
+      <Route exact path="/" component={Home} />
+      <Route path="/add" component={BlogForm} />
+    </Router>
   );
 };
 
-export default Navbar;
+export default App;
+
